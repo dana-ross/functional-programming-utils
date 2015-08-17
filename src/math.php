@@ -1,6 +1,6 @@
 <?php
 
-namespace DaveRoss\FunctionalMath;
+namespace DaveRoss\FunctionalProgrammingUtils;
 
 /**
  * Add two numbers

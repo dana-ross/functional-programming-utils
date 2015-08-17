@@ -1,5 +1,7 @@
 <?php
 
+namespace DaveRoss\FunctionalProgrammingUtils;
+
 abstract class Functor {
 
 	private $value;

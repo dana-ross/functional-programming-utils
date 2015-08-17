@@ -1,5 +1,7 @@
 <?php
 
+namespace DaveRoss\FunctionalProgrammingUtils;
+
 /**
  * Return a property from an array or null if not found
  *

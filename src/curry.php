@@ -1,5 +1,7 @@
 <?php
 
+namespace DaveRoss\FunctionalProgrammingUtils;
+
 /**
  * Curry a function, partially applying the first parameter and returning a function that takes the remaining parameters
  *

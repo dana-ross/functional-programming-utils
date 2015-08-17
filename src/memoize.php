@@ -1,5 +1,7 @@
 <?php
 
+namespace DaveRoss\FunctionalProgrammingUtils;
+
 /**
  * Memoize a function
  *
