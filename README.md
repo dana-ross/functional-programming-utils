@@ -1,6 +1,34 @@
 # functional-programming-utils [![Build Status](https://travis-ci.org/daveross/functional-programming-utils.svg?branch=master)](https://travis-ci.org/daveross/functional-programming-utils)
 Functional Programming utilities for PHP 5.4+
 
+## Installation
+
+### Using composer
+
+Put the require statement for `functional-programming-utils` in your `composer.json` file and run `composer install` or `php composer.phar install`:
+
+```json
+{
+    "require": {
+        "daveross/functional-programming-utils": "~1.0"
+    }
+}
+```
+
+### Manually
+
+Include all the files in the `src` directory, or individual files as needed
+
+```php
+<?php
+include 'path/to/functional-programming-utils/src/compose.php';
+include 'path/to/functional-programming-utils/src/curry.php';
+include 'path/to/functional-programming-utils/src/Functor.php';
+include 'path/to/functional-programming-utils/src/math.php';
+include 'path/to/functional-programming-utils/src/memoize.php';
+include 'path/to/functional-programming-utils/src/prop.php';
+```
+
 ## License
 
 [MIT](http://daveross.mit-license.org)
@@ -143,14 +171,50 @@ doesn't need to be called again the next time it's called with the same paramete
 ```php
 $f = memoize(function($a) { return $a; });
 $x = $f(5); // 5
-$x = $f(5); // 5 again, but the function didn't need to be called again
+$x = $f(5); // 5 again, but the function didn't need to be called a second time
 ```
 
-### curry
+### Currying
 
-### compose
+#### curry
+*Partially applies* a function. Given a function that takes more than one parameter, returns a function that already
+knows the *first* parameter.
+
+```php
+$add_five = curry( 'DaveRoss\FunctionalProgrammingUtils\add', 5 );
+$x = $add_five( 5 ); // 10
+```
+
+#### curry_right
+*Partially applies* a function. Given a function that takes more than one parameter, returns a function that already
+knows the *last* parameter.
+
+```php
+$divide_by_five = curry( 'DaveRoss\FunctionalProgrammingUtils\divide', 5 );
+$x = $divide_by_five( 25 ); // 5
+```
+
+### Composition
+
+#### compose
+Creates a new function consisting of a series of functions that each take one parameter. When the new function is
+called, that series of functions is called from right to left, processing the result of the previous function.  
+
+```php
+$backwards_and_uppercase = compose( 'str_reverse', 'strtoupper' );
+$x = $backwards_and_uppercase( 'dlrow olleh' ); // HELLO WORLD
+```
 
 ### Functors
+
+#### Functor
+
+#### Maybe
+
+#### Either
+
+##### Left
+##### Right
 
 ## Release History
 
