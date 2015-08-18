@@ -95,8 +95,8 @@ $x = DaveRoss\FunctionalProgrammingUtils\truthy( 0 ); // false
 Checks if a value is boolean true
 
 ```php
-$x = DaveRoss\FunctionalProgrammingUtils\truthy( true ); // true
-$x = DaveRoss\FunctionalProgrammingUtils\truthy( 5 ); // false
+$x = DaveRoss\FunctionalProgrammingUtils\true( true ); // true
+$x = DaveRoss\FunctionalProgrammingUtils\true( 5 ); // false
 ```
 
 #### falsy
