@@ -48,7 +48,7 @@ Pull requests are welcome. Unit tests are encouraged but not required.
 * [Functional Programming in PHP](http://www.functionalphp.com)
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com) to see how a language built for Functional Programming works
 
-### *Functional PHP* talk at PHP Hampshire Feb 2014
+### Simon Holywell's *Functional PHP* talk at PHP Hampshire Feb 2014
 [![PHP Hampshire Feb 2014: Functional PHP](http://img.youtube.com/vi/4t5EKEZz724/0.jpg)](https://www.youtube.com/watch?v=4t5EKEZz724)
 
 ## A note for PHP 5.6+ users
