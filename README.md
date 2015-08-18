@@ -120,7 +120,7 @@ $x = DaveRoss\FunctionalProgrammingUtils\falsy( 0 ); // true
 $x = DaveRoss\FunctionalProgrammingUtils\falsy( 5 ); // false
 ```
 
-#### true
+#### false
 Checks if a value is boolean false
 
 ```php
