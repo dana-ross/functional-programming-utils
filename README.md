@@ -208,8 +208,28 @@ $x = $backwards_and_uppercase( 'dlrow olleh' ); // HELLO WORLD
 ### Functors
 
 #### Functor
+Abstract parent class for Functors. A Functor is a class that wraps a single value and implements `function map(callable $f)`.
+Functor::map() returns another Functor wrapping the function's return value. See the ```Just``` Functor. 
+
+#### Just
+The ```Just``` Functor "just" wraps a value and maps functions to it.
+
+```php
+$x = new Just( 5 );
+$y = $x->map( function() { return $this->value * 5; } ); // Just(25)
+```
 
 #### Maybe
+The Maybe Functor recognizes when it's holding a ```null``` value and returns ```null``` when a function is mapped to it
+
+```php
+$x = new Maybe( 5 );
+$y = $x->map( function() { return $this->value * 5; } ); // Maybe(25)
+
+$a = new Maybe( null );
+$b = $a->map( function() { return $this->value * 5; } ); // Maybe(null)
+
+```
 
 #### Either
 
