@@ -244,6 +244,14 @@ $b = $a->map( function( $a ) { return $a * 5; } ); // Maybe(null)
 
 ```
 
+#### Maybe function
+May be used to extract the value from a Maybe Functor.
+
+```php
+$x = new Maybe( 5 );
+$y = maybe(null, function( $a ) { return $a * 5; }, $x); // 25
+```
+
 #### Either
 
 ##### Left

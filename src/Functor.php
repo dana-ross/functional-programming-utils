@@ -60,7 +60,8 @@ abstract class Functor {
  * The most basic Functor just holds a value and allows functions to be mapped to it
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Just extends Functor {}
+class Just extends Functor {
+}
 
 /**
  * Class Maybe
@@ -76,9 +77,35 @@ class Maybe extends Functor {
 	 * @return Maybe
 	 */
 	public function map( callable $f ) {
-		return ( null == $this->value ) ? Maybe::of( null ) : Maybe::of( $f( $this->value ) );
+		return ( $this->isNothing() ) ? Maybe::of( null ) : Maybe::of( $f( $this->value ) );
 	}
 
+	public function isNothing() {
+		return ( null == $this->value );
+	}
+
+	/**
+	 * Get this Functor's value without wrapping it.
+	 * @return mixed
+	 */
+	public function value() {
+		return $this->value;
+	}
+
+}
+
+/**
+ * Helper function to apply a function to a Maybe that is not Maybe(null). Returns the value directly rather
+ * than wrapping it in another Maybe.
+ *
+ * @param mixed    $x default value
+ * @param callable $f function to apply to a non-empty Maybe's value
+ * @param Maybe    $m the Maybe to run the function against if the Maybe is not Maybe(null)
+ *
+ * @return mixed
+ */
+function maybe( $x, callable $f, Maybe $m ) {
+	return ( $m->isNothing() ) ? $x : $f( $m->value() );
 }
 
 /**
