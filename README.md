@@ -169,7 +169,7 @@ Wraps a function in a layer that stores the function's return value for every se
 doesn't need to be called again the next time it's called with the same parameters
 
 ```php
-$f = memoize(function($a) { return $a; });
+$f = DaveRoss\FunctionalProgrammingUtils\memoize(function($a) { return $a; });
 $x = $f(5); // 5
 $x = $f(5); // 5 again, but the function didn't need to be called a second time
 ```
@@ -181,7 +181,7 @@ $x = $f(5); // 5 again, but the function didn't need to be called a second time
 knows the *first* parameter.
 
 ```php
-$add_five = curry( 'DaveRoss\FunctionalProgrammingUtils\add', 5 );
+$add_five = DaveRoss\FunctionalProgrammingUtils\curry( 'DaveRoss\FunctionalProgrammingUtils\add', 5 );
 $x = $add_five( 5 ); // 10
 ```
 
@@ -190,7 +190,7 @@ $x = $add_five( 5 ); // 10
 knows the *last* parameter.
 
 ```php
-$divide_by_five = curry( 'DaveRoss\FunctionalProgrammingUtils\divide', 5 );
+$divide_by_five = DaveRoss\FunctionalProgrammingUtils\curry_right( 'DaveRoss\FunctionalProgrammingUtils\divide', 5 );
 $x = $divide_by_five( 25 ); // 5
 ```
 
@@ -201,7 +201,7 @@ Creates a new function consisting of a series of functions that each take one pa
 called, that series of functions is called from right to left, processing the result of the previous function.  
 
 ```php
-$backwards_and_uppercase = compose( 'str_reverse', 'strtoupper' );
+$backwards_and_uppercase = DaveRoss\FunctionalProgrammingUtils\compose( 'str_reverse', 'strtoupper' );
 $x = $backwards_and_uppercase( 'dlrow olleh' ); // HELLO WORLD
 ```
 
