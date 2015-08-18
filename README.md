@@ -3,6 +3,25 @@
 
 Functional Programming utilities for PHP 5.4+
 
+## Table of Contents
+
+  * [Installation](#installation)
+    + [Using composer](#using-composer)
+    + [Manually](#manually)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Further reading & suggested viewing](#further-reading---suggested-viewing)
+    + [Simon Holywell's *Functional PHP* talk at PHP Hampshire Feb 2014](#simon-holywell-s--functional-php--talk-at-php-hampshire-feb-2014)
+  * [A note for PHP 5.6+ users](#a-note-for-php-56--users)
+  * [Features](#features)
+    + [Mathematical functions](#mathematical-functions)
+    + [Property Access](#property-access)
+    + [Memoization](#memoization)
+    + [Currying](#currying)
+    + [Composition](#composition)
+    + [Functors](#functors)
+  * [Release History](#release-history)
+  
 ## Installation
 
 ### Using composer
