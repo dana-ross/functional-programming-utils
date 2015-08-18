@@ -43,6 +43,13 @@ See [why I contribute to open source software](https://davidmichaelross.com/blog
 
 Pull requests are welcome. Unit tests are encouraged but not required.
 
+## Further reading & suggested viewing
+* [Professor Frisby's Mostly Adequate Guide to Functional Programming](http://drboolean.gitbooks.io/mostly-adequate-guide/)
+* [Functional Programming in PHP](http://www.functionalphp.com)
+* [Learn You a Haskell for Great Good](http://learnyouahaskell.com) to see how a language built for Functional Programming works
+
+https://www.youtube.com/watch?v=4t5EKEZz724
+
 ## A note for PHP 5.6+ users
 
 Starting in PHP 5.6, you can ```use function``` at the top of a file to reference that function without typing its whole name, including the namespace. I encourage you to try it.
@@ -268,7 +275,7 @@ $y = $f( 5 ); // Left( "too low" )
 ```
 
 ##### Right
-The Right Functor contains the result of a successful function call. 
+The Right Functor wraps the result of a successful function call. 
 
 ```php
 $f = function($a) {
