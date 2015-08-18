@@ -46,7 +46,7 @@ Pull requests are welcome. Unit tests are encouraged but not required.
 Starting in PHP 5.6, you can ```use function``` at the top of a file to reference that function without typing its whole name, including the namespace. I encourage you to try it.
 
 ```php
-use DaveRoss\FunctionalProgrammingUtils\add as add;
+use function DaveRoss\FunctionalProgrammingUtils\add as add;
 $x = add( 5, 5 ); // 10
 ```
 
