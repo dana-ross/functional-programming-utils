@@ -218,18 +218,18 @@ The ```Just``` Functor "just" wraps a value and maps functions to it.
 
 ```php
 $x = new Just( 5 );
-$y = $x->map( function() { return $this->value * 5; } ); // Just(25)
+$y = $x->map( function( $a ) { return $a * 5; } ); // Just(25)
 ```
 
 #### Maybe
-The Maybe Functor recognizes when it's holding a ```null``` value and returns ```null``` when a function is mapped to it
+The Maybe Functor recognizes when it's holding a ```null``` value and returns ```Maybe( null )``` when a function is mapped to it. Otherwise, it behaves like a Just Functor.
 
 ```php
 $x = new Maybe( 5 );
-$y = $x->map( function() { return $this->value * 5; } ); // Maybe(25)
+$y = $x->map( function( $a ) { return $a * 5; } ); // Maybe(25)
 
 $a = new Maybe( null );
-$b = $a->map( function() { return $this->value * 5; } ); // Maybe(null)
+$b = $a->map( function( $a ) { return $a * 5; } ); // Maybe(null)
 
 ```
 
