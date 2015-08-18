@@ -19,7 +19,7 @@ Put the require statement for `functional-programming-utils` in your `composer.j
 
 ### Manually
 
-Include all the files in the `src` directory, or individual files as needed
+Include all the files in the `src` directory, or individual files as needed:
 
 ```php
 <?php
@@ -40,6 +40,15 @@ See [why I contribute to open source software](https://davidmichaelross.com/blog
 ## Contributing
 
 Pull requests are welcome. Unit tests are encouraged but not required.
+
+## A note for PHP 5.6+ users
+
+Starting in PHP 5.6, you can ```use function``` at the top of a file to reference that function without typing it's whole name, including the namespace. I encourage you to try it.
+
+```php
+use DaveRoss\FunctionalProgrammingUtils\add as add;
+$x = add( 5, 5 ); // 10
+```
 
 ## Features
 
