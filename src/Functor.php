@@ -12,11 +12,20 @@ abstract class Functor {
 	protected $value;
 
 	/**
-	 * Allow the Functor to be invoked like a function
+	 * Allow the Functor to be called like a function
 	 *
+	 * @param callable $f
+	 *
+	 * @return mixed
+	 */
+	public function __invoke( $f ) {
+		return $this->map( $f );
+	}
+
+	/**
 	 * @param mixed $a
 	 */
-	public function __invoke( $a ) {
+	private function __construct( $a ) {
 		$this->value = $a;
 	}
 
