@@ -73,10 +73,10 @@ class Maybe extends Functor {
 	 *
 	 * @param callable $f
 	 *
-	 * @return null
+	 * @return Maybe
 	 */
 	public function map( callable $f ) {
-		return ( null == $this->value ) ? null : $f( $this->value );
+		return ( null == $this->value ) ? Maybe::of( null ) : Maybe::of( $f( $this->value ) );
 	}
 
 }
