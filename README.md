@@ -244,7 +244,7 @@ $b = $a->map( function( $a ) { return $a * 5; } ); // Maybe(null)
 
 ```
 
-#### Maybe function
+#### maybe function
 May be used to extract the value from a Maybe Functor.
 
 ```php
@@ -253,9 +253,45 @@ $y = maybe(null, function( $a ) { return $a * 5; }, $x); // 25
 ```
 
 #### Either
+To implement conditionals, a function can be defined as returning *either* one value or another. This is represented with the Either Functor and its children, ```Left``` and ```Right```.
 
 ##### Left
+The Left Functor wraps an error value from an unsuccessful function call.
+
+```php
+$f = function($a) {
+	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 ); 
+}
+
+$x = $f( 15 ); // Right( 16 )
+$y = $f( 5 ); // Left( "too low" ) 
+```
+
 ##### Right
+The Right Functor contains the result of a successful function call. 
+
+```php
+$f = function($a) {
+	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 ); 
+}
+
+$x = $f( 15 ); // Right( 16 )
+$y = $f( 5 ); // Left( "too low" ) 
+```
+
+#### either function
+May be used to extract the value from either a Left Functor or a Right Functor.
+
+```php
+$x = Left::of( 5 );
+$y = Right::of( 7 );
+
+$left_handler = function( $a ) { return $a * 2; };
+$right_handler = function( $a ) { return $a * 3; };
+
+$a = either($left_handler, $right_handler, $x); // 10
+$b = either($left_handler, $right_handler, $y); // 21
+```
 
 ## Release History
 
