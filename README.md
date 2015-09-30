@@ -56,7 +56,7 @@ include 'path/to/functional-programming-utils/src/prop.php';
 
 See [why I contribute to open source software](https://davidmichaelross.com/blog/contribute-open-source-software/).
 
-<a href='http://ko-fi.com?i=218522KK2DEV8' target='_blank'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn5.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></a> 
+[Buy me a coffee](https://cash.me/$daveross/5)
 
 ## Contributing
 
