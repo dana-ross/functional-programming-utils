@@ -240,7 +240,7 @@ $x = $divide_by_five( 25 ); // 5
 ```
 
 #### curry
-*Curries* a function. Given a function that takes more than one parameter, takes a single parameter and returns a function that takes the *next* parameter until all required parameters are provided.
+*Curries* a function. Given a function that takes more than one parameter, applies a single parameter to it and returns a function that takes the *next* parameter until all required parameters are provided.
 
 ```php
   function add_three_integers($a, $b, $c) {
