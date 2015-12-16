@@ -26,10 +26,10 @@ class CurryTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	public function test_curry() {
-		$pfd = DaveRoss\FunctionalProgrammingUtils\curry( 'sprintf', "%d" );
+	public function test_curry_two_param_function() {
+		$pfd = DaveRoss\FunctionalProgrammingUtils\curry( 'range', 1 );
 		$output = $pfd( 5 );
-		$this->assertEquals( '5', $output );
+		$this->assertEquals( array(1,2,3,4,5), $output );
 	}
 
 	public function test_curry_single_param_function() {
