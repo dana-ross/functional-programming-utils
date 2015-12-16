@@ -244,7 +244,7 @@ $x = $divide_by_five( 25 ); // 5
 
 ```php
   function add_three_integers($a, $b, $c) {
-  		return intval($a) + intval($b) + intval($c);
+  		return intval( $a ) + intval( $b ) + intval( $c );
   }
 
   $fn = DaveRoss\FunctionalProgrammingUtils\curry( 'add_three_integers' , 1 );
