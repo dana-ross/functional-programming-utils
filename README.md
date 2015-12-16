@@ -248,8 +248,8 @@ $x = $divide_by_five( 25 ); // 5
   }
 
   $fn = DaveRoss\FunctionalProgrammingUtils\curry( 'add_three_integers' , 1 );
-  $fn2 = $fn(2);
-  $output = $fn2(3); // 6
+  $fn2 = $fn( 2 );
+  $x = $fn2( 3 ); // 6
 ```
 
 ### Composition
