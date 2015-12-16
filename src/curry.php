@@ -39,8 +39,8 @@ function partially_apply_right( callable $x, $y ) {
  * @return Closure
  */
 function curry( callable $x, $y ) {
-	$params = array($y);
-	$required_parameters = (new \ReflectionFunction($x))->getNumberOfRequiredParameters();
+	$params = array( $y );
+	$required_parameters = ( new \ReflectionFunction( $x ) )->getNumberOfRequiredParameters();
 
 	if( 1 === $required_parameters ) {
 		return call_user_func_array( $x, array( $y ) );
