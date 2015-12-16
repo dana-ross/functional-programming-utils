@@ -341,4 +341,4 @@ $b = either($left_handler, $right_handler, $y); // 21
 ## Release History
 
  * 2015-08-18   [v1.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v1.0.0)   Initial release
- * 2015-12-16   [v2.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/2.0.0)   Fixes the semantics of currying vs partial application
+ * 2015-12-16   [v2.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v2.0.0)   Fixes the semantics of currying vs partial application
