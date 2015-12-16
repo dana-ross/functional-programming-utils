@@ -21,7 +21,7 @@ Functional Programming utilities for PHP 5.4+
     + [Composition](#composition)
     + [Functors](#functors)
   * [Release History](#release-history)
-  
+
 ## Installation
 
 ### Using composer
@@ -164,7 +164,7 @@ $x = DaveRoss\FunctionalProgrammingUtils\default_value( 5, null); // 5
 ```
 
 ### Property Access
- 
+
 #### array_prop
 Returns a value from an array given the corresponding key, or null if the key doesn't exist in the array
 
@@ -216,22 +216,40 @@ $x = $f(5); // 5 again, but the function didn't need to be called a second time
 
 ### Currying
 
-#### curry
+See [
+Curry or Partial Application?
+The Difference Between
+Partial Application and Curry](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.vwmrlqe5x) for details on how these functions differ.
+
+#### partially_apply
 *Partially applies* a function. Given a function that takes more than one parameter, returns a function that already
 knows the *first* parameter.
 
 ```php
-$add_five = DaveRoss\FunctionalProgrammingUtils\curry( 'DaveRoss\FunctionalProgrammingUtils\add', 5 );
+$add_five = DaveRoss\FunctionalProgrammingUtils\partially_apply( 'DaveRoss\FunctionalProgrammingUtils\add', 5 );
 $x = $add_five( 5 ); // 10
 ```
 
-#### curry_right
+#### partially_apply_right
 *Partially applies* a function. Given a function that takes more than one parameter, returns a function that already
 knows the *last* parameter.
 
 ```php
-$divide_by_five = DaveRoss\FunctionalProgrammingUtils\curry_right( 'DaveRoss\FunctionalProgrammingUtils\divide', 5 );
+$divide_by_five = DaveRoss\FunctionalProgrammingUtils\partially_apply_right( 'DaveRoss\FunctionalProgrammingUtils\divide', 5 );
 $x = $divide_by_five( 25 ); // 5
+```
+
+#### curry
+*Curries* a function. Given a function that takes more than one parameter, takes a single parameter and returns a function that takes the *next* parameter until all required parameters are provided.
+
+```php
+  function add_three_integers($a, $b, $c) {
+  		return intval($a) + intval($b) + intval($c);
+  }
+
+  $fn = DaveRoss\FunctionalProgrammingUtils\curry( 'add_three_integers' , 1 );
+  $fn2 = $fn(2);
+  $output = $fn2(3); // 6
 ```
 
 ### Composition
@@ -249,7 +267,7 @@ $x = $backwards_and_uppercase( 'dlrow olleh' ); // HELLO WORLD
 
 #### Functor
 Abstract parent class for Functors. A Functor is a class that wraps a single value and implements `function map(callable $f)`.
-Functor::map() returns another Functor wrapping the function's return value. See the ```Just``` Functor. 
+Functor::map() returns another Functor wrapping the function's return value. See the ```Just``` Functor.
 
 #### Just
 The ```Just``` Functor "just" wraps a value and maps functions to it.
@@ -287,23 +305,23 @@ The Left Functor wraps an error value from an unsuccessful function call.
 
 ```php
 $f = function($a) {
-	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 ); 
+	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 );
 }
 
 $x = $f( 15 ); // Right( 16 )
-$y = $f( 5 ); // Left( "too low" ) 
+$y = $f( 5 ); // Left( "too low" )
 ```
 
 ##### Right
-The Right Functor wraps the result of a successful function call. 
+The Right Functor wraps the result of a successful function call.
 
 ```php
 $f = function($a) {
-	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 ); 
+	return ( $a < 10 ) : Left::of( 'too low' ) : Right::of( $a + 1 );
 }
 
 $x = $f( 15 ); // Right( 16 )
-$y = $f( 5 ); // Left( "too low" ) 
+$y = $f( 5 ); // Left( "too low" )
 ```
 
 #### either function
