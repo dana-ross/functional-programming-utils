@@ -43,7 +43,7 @@ function curry( callable $x, $y ) {
 	$required_parameters = ( new \ReflectionFunction( $x ) )->getNumberOfRequiredParameters();
 
 	if( 1 === $required_parameters ) {
-		return call_user_func_array( $x, array( $y ) );
+		return call_user_func( $x, $y );
 	}
 	else {
 		return $fn = function( $z = null ) use ( $x, &$params, $required_parameters, &$fn ) {
