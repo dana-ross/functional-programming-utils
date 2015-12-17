@@ -54,7 +54,7 @@ include 'path/to/functional-programming-utils/src/prop.php';
 
 [MIT](http://daveross.mit-license.org)
 
-See [why I contribute to open source software](https://davidmichaelross.com/blog/contribute-open-source-software/).
+See [why I contribute to open source software](https://medium.com/@csixty4/why-i-write-open-source-software-6d3569c85e64#.hq00fw10b).
 
 [Buy me a coffee](https://cash.me/$daveross/5)
 
