@@ -44,7 +44,7 @@ class CurryTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(6, $output1);
 	}
 
-  /**
+	/**
 	 * Test that curry() can track parameters for two functions simultaneously
 	 */
 	public function test_curry_multiple_invocations() {
