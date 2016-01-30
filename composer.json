@@ -18,12 +18,12 @@
     "issues": "https://github.com/daveross/functional-programming-utils/issues"
   },
   "require": {
-    "php": ">=5.4.0"
+    "php": ">=5.6.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.0"
+    "phpunit/phpunit": "~5.0.0"
   },
   "autoload": {
-      "files": ["src/curry.php", "src/Functor.php", "src/math.php", "src/memoize.php", "src/prop.php", "src/compose.php"]
+      "files": ["src/curry.php", "src/Monad.php", "src/math.php", "src/memoize.php", "src/prop.php", "src/compose.php"]
   }
 }

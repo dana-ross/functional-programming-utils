@@ -1,8 +1,8 @@
 <?php
 
-use DaveRoss\FunctionalProgrammingUtils\Functor as Functor;
+use DaveRoss\FunctionalProgrammingUtils\Monad as Monad;
 
-class FunctorImpl extends Functor {
+class MonadImpl extends Monad {
 	public $value;
 }
 
@@ -10,18 +10,18 @@ class FunctorTest extends PHPUnit_Framework_TestCase {
 
 	public function test_functor_construction() {
 
-		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Functor', FunctorImpl::of( 5 ) );
-		$this->assertEquals( 5, FunctorImpl::of( 5 )->value );
+		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Monad', MonadImpl::of( 5 ) );
+		$this->assertEquals( 5, MonadImpl::of( 5 )->value );
 
 	}
 
 	public function test_functor_map() {
 
-		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Functor', FunctorImpl::of( 5 )->map( function ( $a ) {
+		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Monad', MonadImpl::of( 5 )->map( function ( $a ) {
 			return $a * 2;
 		} ) );
 
-		$this->assertEquals( 10, FunctorImpl::of( 5 )->map( function ( $a ) {
+		$this->assertEquals( 10, MonadImpl::of( 5 )->map( function ( $a ) {
 			return $a * 2;
 		} )->value );
 
@@ -29,9 +29,9 @@ class FunctorTest extends PHPUnit_Framework_TestCase {
 
 	public function test_functor_invoke() {
 
-		$five = FunctorImpl::of( 5 );
+		$five = MonadImpl::of( 5 );
 
-		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Functor', $five( function ( $a ) {
+		$this->assertInstanceOf( 'DaveRoss\FunctionalProgrammingUtils\Monad', $five( function ( $a ) {
 			return $a * 2;
 		} ) );
 

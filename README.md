@@ -19,7 +19,7 @@ Functional Programming utilities for PHP 5.4+
     + [Memoization](#memoization)
     + [Currying](#currying)
     + [Composition](#composition)
-    + [Functors](#functors)
+    + [Monads](#monads)
   * [Release History](#release-history)
 
 ## Installation
@@ -263,14 +263,14 @@ $backwards_and_uppercase = DaveRoss\FunctionalProgrammingUtils\compose( 'str_rev
 $x = $backwards_and_uppercase( 'dlrow olleh' ); // HELLO WORLD
 ```
 
-### Functors
+### Monads
 
-#### Functor
-Abstract parent class for Functors. A Functor is a class that wraps a single value and implements `function map(callable $f)`.
-Functor::map() returns another Functor wrapping the function's return value. See the ```Just``` Functor.
+#### Monad
+Abstract parent class for Monads. A Monad is a class that wraps a single value and implements `function map(callable $f)`.
+Monad::map() returns another Monad wrapping the function's return value. See the ```Just``` Monad.
 
 #### Just
-The ```Just``` Functor "just" wraps a value and maps functions to it.
+The ```Just``` Monad "just" wraps a value and maps functions to it.
 
 ```php
 $x = new Just( 5 );
@@ -278,7 +278,7 @@ $y = $x->map( function( $a ) { return $a * 5; } ); // Just(25)
 ```
 
 #### Maybe
-The Maybe Functor recognizes when it's holding a ```null``` value and returns ```Maybe( null )``` when a function is mapped to it. Otherwise, it behaves like a Just Functor.
+The Maybe Monad recognizes when it's holding a ```null``` value and returns ```Maybe( null )``` when a function is mapped to it. Otherwise, it behaves like a Just Monad.
 
 ```php
 $x = new Maybe( 5 );
@@ -290,7 +290,7 @@ $b = $a->map( function( $a ) { return $a * 5; } ); // Maybe(null)
 ```
 
 #### maybe function
-May be used to extract the value from a Maybe Functor.
+May be used to extract the value from a Maybe Monad.
 
 ```php
 $x = new Maybe( 5 );
@@ -298,10 +298,10 @@ $y = maybe(null, function( $a ) { return $a * 5; }, $x); // 25
 ```
 
 #### Either
-To implement conditionals, a function can be defined as returning *either* one value or another. This is represented with the Either Functor and its children, ```Left``` and ```Right```.
+To implement conditionals, a function can be defined as returning *either* one value or another. This is represented with the Either Monad and its children, ```Left``` and ```Right```.
 
 ##### Left
-The Left Functor wraps an error value from an unsuccessful function call.
+The Left Monad wraps an error value from an unsuccessful function call.
 
 ```php
 $f = function($a) {
@@ -313,7 +313,7 @@ $y = $f( 5 ); // Left( "too low" )
 ```
 
 ##### Right
-The Right Functor wraps the result of a successful function call.
+The Right Monad wraps the result of a successful function call.
 
 ```php
 $f = function($a) {
@@ -325,7 +325,7 @@ $y = $f( 5 ); // Left( "too low" )
 ```
 
 #### either function
-May be used to extract the value from either a Left Functor or a Right Functor.
+May be used to extract the value from either a Left Monad or a Right Monad.
 
 ```php
 $x = Left::of( 5 );
@@ -342,3 +342,4 @@ $b = either($left_handler, $right_handler, $y); // 21
 
  * 2015-08-18   [v1.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v1.0.0)   Initial release
  * 2015-12-16   [v2.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v2.0.0)   Fixes the semantics of currying vs partial application
+ * 2016-01-30   [v3.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v3.0.0)   Changed "Functor" to "Monad", which is more accurate

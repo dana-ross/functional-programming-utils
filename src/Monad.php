@@ -3,16 +3,16 @@
 namespace DaveRoss\FunctionalProgrammingUtils;
 
 /**
- * Class Functor
- * Base class for Functors. Implements basic Functor functionality
+ * Class Monad
+ * Base class for Monads. Implements basic Monad functionality
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-abstract class Functor {
+abstract class Monad {
 
 	protected $value;
 
 	/**
-	 * Allow the Functor to be called like a function
+	 * Allow Monad::map() to be called like a method
 	 *
 	 * @param callable $f
 	 *
@@ -30,7 +30,7 @@ abstract class Functor {
 	}
 
 	/**
-	 * Instantiate a new Functor wrapping a given value
+	 * Instantiate a new Monad wrapping a given value
 	 *
 	 * @param mixed $a
 	 *
@@ -41,11 +41,11 @@ abstract class Functor {
 	}
 
 	/**
-	 * Apply a function to this Functor's value
+	 * Apply a function to this Monad's value
 	 *
 	 * @param callable $f
 	 *
-	 * @return Functor
+	 * @return Monad
 	 */
 	public function map( callable $f ) {
 		$class_name = get_called_class();
@@ -65,20 +65,20 @@ abstract class Functor {
 
 /**
  * Class Just
- * The most basic Functor just holds a value and allows functions to be mapped to it
+ * The most basic Monad just holds a value and allows functions to be mapped to it
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Just extends Functor {
+class Just extends Monad {
 }
 
 /**
  * Class Maybe
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Maybe extends Functor {
+class Maybe extends Monad {
 
 	/**
-	 * Apply a function to this Functor's value only if the value is not null
+	 * Apply a function to this Monad's value only if the value is not null
 	 *
 	 * @param callable $f
 	 *
@@ -110,15 +110,15 @@ function maybe( $x, callable $f, Maybe $m ) {
 
 /**
  * Class Either
- * Base class for an Either Functor
+ * Base class for an Either Monad
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-abstract class Either extends Functor {
+abstract class Either extends Monad {
 }
 
 /**
  * Class Left
- * Left Functor. Represents a failure or error state.
+ * Left Monad. Represents a failure or error state.
  * @package DaveRoss\FunctionalProgrammingUtils
  */
 class Left extends Either {
@@ -138,7 +138,7 @@ class Left extends Either {
 
 /**
  * Class Right
- * Right Functor. Represents a success state. Acts like a normal Functor.
+ * Right Monad. Represents a success state. Acts like a normal Monad.
  * @package DaveRoss\FunctionalProgrammingUtils
  */
 class Right extends Either {
