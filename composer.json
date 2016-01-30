@@ -21,7 +21,7 @@
     "php": ">=5.4.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.8.19"
+    "phpunit/phpunit": "4.8.19"
   },
   "autoload": {
       "files": ["src/curry.php", "src/Monad.php", "src/math.php", "src/memoize.php", "src/prop.php", "src/compose.php"]
