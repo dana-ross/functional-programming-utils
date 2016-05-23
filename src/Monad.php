@@ -37,7 +37,7 @@ abstract class Monad
      *
      * @param mixed $a
      *
-     * @return Functor
+     * @return Monad
      */
     public static function of($a)
     {
@@ -59,7 +59,7 @@ abstract class Monad
     }
 
     /**
-     * Get this Functor's value without wrapping it.
+     * Get this Monad's value without wrapping it.
      * @return mixed
      */
     public function value()
@@ -139,7 +139,7 @@ class Left extends Either
      *
      * @param callable $f
      *
-     * @return Functor
+     * @return Monad
      */
     public function map(callable $f)
     {
