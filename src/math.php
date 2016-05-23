@@ -10,8 +10,9 @@ namespace DaveRoss\FunctionalProgrammingUtils;
  *
  * @return mixed
  */
-function add( $x, $y ) {
-	return $x + $y;
+function add($x, $y)
+{
+    return $x + $y;
 }
 
 /**
@@ -21,8 +22,9 @@ function add( $x, $y ) {
  *
  * @return mixed
  */
-function inverse( $x ) {
-	return multiply( $x, - 1 );
+function inverse($x)
+{
+    return multiply($x, - 1);
 }
 
 /**
@@ -33,8 +35,9 @@ function inverse( $x ) {
  *
  * @return mixed
  */
-function subtract( $x, $y ) {
-	return $x - $y;
+function subtract($x, $y)
+{
+    return $x - $y;
 }
 
 /**
@@ -45,8 +48,9 @@ function subtract( $x, $y ) {
  *
  * @return mixed
  */
-function multiply( $x, $y ) {
-	return $x * $y;
+function multiply($x, $y)
+{
+    return $x * $y;
 }
 
 /**
@@ -57,8 +61,9 @@ function multiply( $x, $y ) {
  *
  * @return float
  */
-function divide( $x, $y ) {
-	return $x / $y;
+function divide($x, $y)
+{
+    return $x / $y;
 }
 
 /**
@@ -69,8 +74,9 @@ function divide( $x, $y ) {
  *
  * @return int
  */
-function modulus( $x, $y ) {
-	return $x % $y;
+function modulus($x, $y)
+{
+    return $x % $y;
 }
 
 /**
@@ -80,8 +86,9 @@ function modulus( $x, $y ) {
  *
  * @return bool
  */
-function truthy( $x ) {
-	return true == $x;
+function truthy($x)
+{
+    return true == $x;
 }
 
 /**
@@ -91,8 +98,9 @@ function truthy( $x ) {
  *
  * @return bool
  */
-function true( $x ) {
-	return true === $x;
+function true($x)
+{
+    return true === $x;
 }
 
 /**
@@ -102,8 +110,9 @@ function true( $x ) {
  *
  * @return bool
  */
-function falsy( $x ) {
-	return false == $x;
+function falsy($x)
+{
+    return false == $x;
 }
 
 /**
@@ -113,8 +122,9 @@ function falsy( $x ) {
  *
  * @return bool
  */
-function false( $x ) {
-	return false === $x;
+function false($x)
+{
+    return false === $x;
 }
 
 /**
@@ -125,6 +135,7 @@ function false( $x ) {
  *
  * @return mixed
  */
-function default_value( $x, $y = null ) {
-	return null === $y ? $x : $y;
+function default_value($x, $y = null)
+{
+    return null === $y ? $x : $y;
 }
