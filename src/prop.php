@@ -10,8 +10,9 @@ namespace DaveRoss\FunctionalProgrammingUtils;
  *
  * @return mixed|null
  */
-function array_prop( array $x, $y ) {
-	return isset( $x[ $y ] ) ? $x[ $y ] : null;
+function array_prop(array $x, $y)
+{
+    return isset($x[ $y ]) ? $x[ $y ] : null;
 }
 
 /**
@@ -23,8 +24,9 @@ function array_prop( array $x, $y ) {
  * @return mixed|null
  */
 
-function object_prop( $x, $y ) {
-	return isset( $x->$y ) ? $x->$y : null;
+function object_prop($x, $y)
+{
+    return isset($x->$y) ? $x->$y : null;
 }
 
 /**
@@ -35,6 +37,7 @@ function object_prop( $x, $y ) {
  *
  * @return mixed|null
  */
-function prop( $x, $y ) {
-	return is_array( $x ) ? array_prop( $x, $y ) : object_prop( $x, $y );
+function prop($x, $y)
+{
+    return is_array($x) ? array_prop($x, $y) : object_prop($x, $y);
 }

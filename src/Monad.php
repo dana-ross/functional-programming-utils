@@ -7,60 +7,65 @@ namespace DaveRoss\FunctionalProgrammingUtils;
  * Base class for Monads. Implements basic Monad functionality
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-abstract class Monad {
+abstract class Monad
+{
 
-	protected $value;
+    protected $value;
 
-	/**
-	 * Allow Monad::map() to be called like a method
-	 *
-	 * @param callable $f
-	 *
-	 * @return mixed
-	 */
-	public function __invoke( $f ) {
-		return $this->map( $f );
-	}
+    /**
+     * Allow Monad::map() to be called like a method
+     *
+     * @param callable $f
+     *
+     * @return mixed
+     */
+    public function __invoke($f)
+    {
+        return $this->map($f);
+    }
 
-	/**
-	 * @param mixed $a
-	 */
-	private function __construct( $a ) {
-		$this->value = $a;
-	}
+    /**
+     * @param mixed $a
+     */
+    private function __construct($a)
+    {
+        $this->value = $a;
+    }
 
-	/**
-	 * Instantiate a new Monad wrapping a given value
-	 *
-	 * @param mixed $a
-	 *
-	 * @return Functor
-	 */
-	public static function of( $a ) {
-		return new static( $a );
-	}
+    /**
+     * Instantiate a new Monad wrapping a given value
+     *
+     * @param mixed $a
+     *
+     * @return Functor
+     */
+    public static function of($a)
+    {
+        return new static( $a );
+    }
 
-	/**
-	 * Apply a function to this Monad's value
-	 *
-	 * @param callable $f
-	 *
-	 * @return Monad
-	 */
-	public function map( callable $f ) {
-		$class_name = get_called_class();
+    /**
+     * Apply a function to this Monad's value
+     *
+     * @param callable $f
+     *
+     * @return Monad
+     */
+    public function map(callable $f)
+    {
+        $class_name = get_called_class();
 
-		return new $class_name( $f( $this->value ) );
-	}
+        return new $class_name( $f( $this->value ) );
+    }
 
-	/**
-	 * Get this Functor's value without wrapping it.
-	 * @return mixed
-	 */
-	public function value() {
-		return $this->value;
-	}
-
+    /**
+     * Get this Functor's value without wrapping it.
+     * @return mixed
+     */
+    public function value()
+    {
+        return $this->value;
+    }
 }
 
 /**
@@ -68,30 +73,33 @@ abstract class Monad {
  * The most basic Monad just holds a value and allows functions to be mapped to it
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Just extends Monad {
+class Just extends Monad
+{
 }
 
 /**
  * Class Maybe
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Maybe extends Monad {
+class Maybe extends Monad
+{
 
-	/**
-	 * Apply a function to this Monad's value only if the value is not null
-	 *
-	 * @param callable $f
-	 *
-	 * @return Maybe
-	 */
-	public function map( callable $f ) {
-		return ( $this->isNothing() ) ? Maybe::of( null ) : Maybe::of( $f( $this->value ) );
-	}
+    /**
+     * Apply a function to this Monad's value only if the value is not null
+     *
+     * @param callable $f
+     *
+     * @return Maybe
+     */
+    public function map(callable $f)
+    {
+        return ( $this->isNothing() ) ? Maybe::of(null) : Maybe::of($f( $this->value ));
+    }
 
-	public function isNothing() {
-		return ( null == $this->value );
-	}
-
+    public function isNothing()
+    {
+        return ( null == $this->value );
+    }
 }
 
 /**
@@ -104,8 +112,9 @@ class Maybe extends Monad {
  *
  * @return mixed
  */
-function maybe( $x, callable $f, Maybe $m ) {
-	return ( $m->isNothing() ) ? $x : $f( $m->value() );
+function maybe($x, callable $f, Maybe $m)
+{
+    return ( $m->isNothing() ) ? $x : $f( $m->value() );
 }
 
 /**
@@ -113,7 +122,8 @@ function maybe( $x, callable $f, Maybe $m ) {
  * Base class for an Either Monad
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-abstract class Either extends Monad {
+abstract class Either extends Monad
+{
 }
 
 /**
@@ -121,19 +131,20 @@ abstract class Either extends Monad {
  * Left Monad. Represents a failure or error state.
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Left extends Either {
+class Left extends Either
+{
 
-	/**
-	 * Return $this without applying the passed function
-	 *
-	 * @param callable $f
-	 *
-	 * @return Functor
-	 */
-	public function map( callable $f ) {
-		return $this;
-	}
-
+    /**
+     * Return $this without applying the passed function
+     *
+     * @param callable $f
+     *
+     * @return Functor
+     */
+    public function map(callable $f)
+    {
+        return $this;
+    }
 }
 
 /**
@@ -141,7 +152,8 @@ class Left extends Either {
  * Right Monad. Represents a success state. Acts like a normal Monad.
  * @package DaveRoss\FunctionalProgrammingUtils
  */
-class Right extends Either {
+class Right extends Either
+{
 }
 
 /**
@@ -154,13 +166,14 @@ class Right extends Either {
  *
  * @return mixed
  */
-function either( callable $f, callable $g, Either $e ) {
+function either(callable $f, callable $g, Either $e)
+{
 
-	switch ( get_class( $e ) ) {
-		case 'DaveRoss\FunctionalProgrammingUtils\Left':
-			return $f( $e->value() );
-		case 'DaveRoss\FunctionalProgrammingUtils\Right':
-			return $g( $e->value() );
-	}
+    switch (get_class($e)) {
+        case 'DaveRoss\FunctionalProgrammingUtils\Left':
+            return $f( $e->value() );
+        case 'DaveRoss\FunctionalProgrammingUtils\Right':
+            return $g( $e->value() );
+    }
 
 }
