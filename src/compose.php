@@ -5,7 +5,7 @@ namespace DaveRoss\FunctionalProgrammingUtils;
 /**
  * Compose a function consisting of a series of functions that each take a single parameter
  *
- * @return Closure
+ * @return \Closure
  */
 function compose()
 {

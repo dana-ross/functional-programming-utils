@@ -7,7 +7,7 @@ namespace DaveRoss\FunctionalProgrammingUtils;
  *
  * @param callable $f function to memoize
  *
- * @return Closure
+ * @return \Closure
  */
 function memoize(callable $f)
 {

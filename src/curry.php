@@ -8,7 +8,7 @@ namespace DaveRoss\FunctionalProgrammingUtils;
  * @param callable $x
  * @param mixed    $y
  *
- * @return Closure
+ * @return \Closure
  */
 function partially_apply(callable $x, $y)
 {
@@ -23,7 +23,7 @@ function partially_apply(callable $x, $y)
  * @param callable $x
  * @param mixed    $y
  *
- * @return Closure
+ * @return \Closure
  */
 function partially_apply_right(callable $x, $y)
 {
@@ -38,7 +38,7 @@ function partially_apply_right(callable $x, $y)
  * @param callable $x
  * @param mixed    $y
  *
- * @return Closure
+ * @return \Closure
  */
 function curry(callable $x, $y)
 {
