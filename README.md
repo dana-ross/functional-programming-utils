@@ -345,7 +345,7 @@ $b = either($left_handler, $right_handler, $y); // 21
 
 ## Release History
 
- * 2015-08-18   [v1.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v1.0.0)   Initial release
- * 2015-12-16   [v2.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v2.0.0)   Fixes the semantics of currying vs partial application
+ * 2015-08-18   [1.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v1.0.0)   Initial release
+ * 2015-12-16   [2.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v2.0.0)   Fixes the semantics of currying vs partial application
  * 2016-01-30   [3.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/v3.0.0)   Changed "Functor" to "Monad", which is more accurate
  * 2016-05-23   [4.0.0](https://github.com/daveross/functional-programming-utils/releases/tag/4.0.0)   Scrutinizer CI integration, PSR-2 compliance
