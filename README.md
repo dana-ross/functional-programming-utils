@@ -44,10 +44,15 @@ Include all the files in the `src` directory, or individual files as needed:
 <?php
 include 'path/to/functional-programming-utils/src/compose.php';
 include 'path/to/functional-programming-utils/src/curry.php';
-include 'path/to/functional-programming-utils/src/Functor.php';
 include 'path/to/functional-programming-utils/src/math.php';
 include 'path/to/functional-programming-utils/src/memoize.php';
 include 'path/to/functional-programming-utils/src/prop.php';
+include 'path/to/functional-programming-utils/src/Monads/Monad.php';
+include 'path/to/functional-programming-utils/src/Monads/Just.php';
+include 'path/to/functional-programming-utils/src/Monads/Maybe.php';
+include 'path/to/functional-programming-utils/src/Monads/Either.php';
+include 'path/to/functional-programming-utils/src/Monads/Left.php';
+include 'path/to/functional-programming-utils/src/Monads/Right.php';
 ```
 
 ## License
