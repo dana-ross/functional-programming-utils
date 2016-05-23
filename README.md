@@ -31,7 +31,7 @@ Put the require statement for `functional-programming-utils` in your `composer.j
 ```json
 {
     "require": {
-        "daveross/functional-programming-utils": "~1.0"
+        "daveross/functional-programming-utils": "~4.0"
     }
 }
 ```
